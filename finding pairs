@@ -1,0 +1,26 @@
+
+def process_test_case():
+    n = int(input())  
+    arr = list(map(int, input().split()))  
+    
+    element_count = {}  
+    
+    distinct_pairs = 0
+    
+    for num in arr:
+        if num in element_count:
+            element_count[num] += 1
+        else:
+            element_count[num] = 1
+    
+    for count in element_count.values():
+        distinct_pairs += (count * (count - 1)) // 2
+    
+    print(distinct_pairs)
+
+
+t = int(input())
+
+
+for _ in range(t):
+    process_test_case()
