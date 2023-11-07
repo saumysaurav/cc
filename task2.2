@@ -1,5 +1,4 @@
 def length_of_longest_substring(s):
-   
     char_index = {}
     start = 0
     max_length = 0
@@ -12,7 +11,9 @@ def length_of_longest_substring(s):
         max_length = max(max_length, end - start + 1)
     
     return max_length
-s1 = "abcdeabcbb"
-print(length_of_longest_substring(s1))  
-s2 = "bbbbb"
-print(length_of_longest_substring(s2))  
+
+# Get user input for the string
+s = input("Enter a string: ")
+
+result = length_of_longest_substring(s)
+print(f"Length of the longest substring without repeating characters: {result}")
