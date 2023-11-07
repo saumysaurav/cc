@@ -1,5 +1,4 @@
 def isAnagram(s, t):
-
     if len(s) != len(t):
         return False
     char_count_s = {}
@@ -9,7 +8,10 @@ def isAnagram(s, t):
     for char in t:
         char_count_t[char] = char_count_t.get(char, 0) + 1
     return char_count_s == char_count_t
-s = "anagram"
-t = "nagaram"
+
+# Get user input for the strings
+s = input("Enter the first string: ")
+t = input("Enter the second string: ")
+
 result = isAnagram(s, t)
-print(result)  # Output: True
+print(f"The strings are anagrams: {result}")
