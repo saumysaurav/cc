@@ -1,0 +1,24 @@
+def is_palindrome(s):
+    return s == s[::-1]
+
+def make_smallest_palindrome(input_string):
+    n = len(input_string)
+
+    # Iterate through the string in reverse order
+    for i in range(n - 1, -1, -1):
+        if is_palindrome(input_string[:i]):
+            # Found a palindrome prefix
+            palindrome_suffix = input_string[i:][::-1]
+            return input_string + palindrome_suffix
+
+    # If no palindrome prefix is found, add the entire string in reverse order
+    return input_string + input_string[::-1]
+
+# Read input lines until EOF is encountered
+while True:
+    try:
+        input_string = input()
+        result = make_smallest_palindrome(input_string)
+        print(result)
+    except EOFError:
+        break
