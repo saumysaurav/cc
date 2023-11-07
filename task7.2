@@ -1,0 +1,23 @@
+def classify_array(N, X, A):
+    distinct_count = len(set(A))
+
+    if distinct_count == X:
+        return "Good"
+    elif distinct_count < X:
+        return "Bad"
+    else:
+        return "Average"
+
+# Input number of test cases
+T = int(input())
+
+for _ in range(T):
+    # Input N and X
+    N, X = map(int, input().split())
+    
+    # Input the array elements
+    A = list(map(int, input().split()))
+    
+    # Classify the array and print the result
+    result = classify_array(N, X, A)
+    print(result)
