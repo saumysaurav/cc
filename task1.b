@@ -1,4 +1,4 @@
-from itertools import permutation
+from itertools import permutations
 def nextGreaterNumber(N):
     digits = list(str(N))
     n = len(digits)
