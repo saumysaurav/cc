@@ -1,0 +1,28 @@
+class Solution:
+    def countOfAtoms(self, formula: str) -> str:
+        d = defaultdict(int)
+        stack = [1]
+        digits = ""
+        lower = ""
+        for element in formula[::-1]:
+            if element.isdigit():
+                digits += element 
+            elif element.islower():
+                lower += element
+            elif element == ")":
+                stack.append(stack[-1]*int(digits or 1))
+                digits = ""
+            elif element == "(":
+                stack.pop()
+            else:  #for capital letter
+                element += lower
+                d[element] += stack[-1]*(int(digits or 1))
+                digits = ""
+                lower = ""
+        ans =[] 
+        for k,v in sorted(d.items()):
+            if v == 1:
+                v = ""
+            ans.append(k)
+            ans.append(str(v))
+        return "".join(ans)
